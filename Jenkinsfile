@@ -1,35 +1,28 @@
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
+  agent any
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'docker build -t omarmokhtar99/go-docker-app .'
+      }
     }
+    stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
+    stage('Push') {
+      steps {
+        sh 'docker push omarmokhtar99/go-docker-app'
+      }
+    }
+  }
+  post {
+    always {
+      sh 'docker logout'
+    }
+  }
 }
-
-// pipeline {
-//     agent any
-//
-//     stages {
-//         stage('Build and Push Docker Image') {
-//             steps {
-//                 script {
-//                     docker.withRegistry('https://registry.example.com', 'credentials-id') {
-//                         sh 'docker build -t your-image-name .'
-//                         sh 'docker push your-image-name'
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//
-//     post {
-//         always {
-//             script {
-//                 // Report errors or perform cleanup actions here
-//             }
-//         }
-//     }
-// }
