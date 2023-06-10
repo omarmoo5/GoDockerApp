@@ -13,10 +13,12 @@ services:
       - vnet
 
   app:
-    restart: always
+#    Uncomment the following line and comment the build block to use the prebuilt image
+#    image: omarmokhtar99/go-docker-app
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     env_file:
       - ./.env
     ports:
