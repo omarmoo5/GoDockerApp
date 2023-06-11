@@ -5,13 +5,13 @@ FROM golang:1.20-alpine AS builder
 WORKDIR /app
 
 # Copy the Go module files
-COPY go.mod go.sum ./
+COPY app/go.mod app/go.sum ./
 
 # Download the Go dependencies
 RUN go mod download
 
 # Copy the source code
-COPY *.go ./
+COPY app/*.go ./
 
 # Build the Go application
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
@@ -25,6 +25,7 @@ WORKDIR /app
 # Copy the binary from the builder stage
 COPY --from=builder /app/app .
 
+# Expose port 9090 for the app
 EXPOSE 9090
 
 # Set the binary as the entry point

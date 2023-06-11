@@ -7,8 +7,6 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    ports:
-      - "3307:3306"
     networks:
       - vnet
 
@@ -20,7 +18,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     env_file:
-      - ./.env
+      - app/.env
     ports:
       - "9090:9090"
     depends_on:
