@@ -6,7 +6,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t omarmokhtar99/go-docker-app .'
+        sh 'docker build -t omarmokhtar99/go-docker-app:latest .'
+      }
+      post {
+        failure {
+            error('Docker build failed!')
+        }
       }
     }
     stage('Login') {
@@ -23,6 +28,9 @@ pipeline {
   post {
     always {
       sh 'docker logout'
+    }
+    success {
+          sh 'docker rmi omarmokhtar99/go-docker-app:latest'
     }
   }
 }

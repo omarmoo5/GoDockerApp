@@ -8,24 +8,31 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:
-      - vnet
+      - server-net
 
   app:
-#    Uncomment the following line and comment the build block to use the prebuilt image
+#    Uncomment the following line and comment the build line to use the prebuilt image
 #    image: omarmokhtar99/go-docker-app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     restart: always
     env_file:
       - app/.env
     ports:
-      - "9090:9090"
+      - target: 9090
+        published: 9090
     depends_on:
       - db
     networks:
-      - vnet
+      - server-net
+    volumes:
+      - type: volume
+        source: go-docker-vol
+        target: /app
 
 networks:
-  vnet:
+  server-net:
     driver: bridge
+    internal: true
+
+volumes:
+  go-docker-vol:
