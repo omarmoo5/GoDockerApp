@@ -1,32 +1,15 @@
-# Use a lightweight base image
+# Stage 1: Build the Go application
 FROM golang:1.20-alpine AS builder
-
-# Set the working directory
 WORKDIR /app
-
-# Copy the Go module files
-COPY app/go.mod app/go.sum ./
-
-# Download the Go dependencies
+COPY app/go.mod app/go.sum ./ 
 RUN go mod download
-
-# Copy the source code
 COPY app/*.go ./
-
-# Build the Go application
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
-
-# Use a minimal base image
+# ----------------------------------------------------------------------
+# Stage 2: Copy the binary to a light container to reduce the image size
 FROM alpine:latest
-
-# Set the working directory
 WORKDIR /app
-
-# Copy the binary from the builder stage
 COPY --from=builder /app/app .
-
-# Expose port 9090 for the app
 EXPOSE 9090
-
 # Set the binary as the entry point
 ENTRYPOINT ["./app"]
