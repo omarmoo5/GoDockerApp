@@ -1,7 +1,8 @@
+> This project is for [@InstaBug](https://github.com/Instabug) Infrastructure Challenge Phase 2023
+
 ## Full Documentation
 See the [Wiki](https://github.com/omarmoo5/GoDockerApp/wiki) for full documentation, screenshots, and implementation details.
 
-> This project is for [@InstaBug](https://github.com/Instabug) Infrastructure Challenge Phase 2023
 
 # GoDockerApp
 Streamlined Golang web server deployment
