@@ -1,3 +1,6 @@
+## Full Documentation
+See the [Wiki](https://github.com/omarmoo5/GoDockerApp/wiki) for full documentation, screenshots, and implementation details.
+
 > This project is for [@InstaBug](https://github.com/Instabug) Infrastructure Challenge Phase 2023
 
 # GoDockerApp
@@ -36,5 +39,3 @@ Streamlined Golang web server deployment
 - [Autoscaling manifest](https://github.com/omarmoo5/GoDockerApp/blob/main/goApp/templates/app-hpa.yaml)
 - [argocd app file](https://github.com/omarmoo5/GoDockerApp/blob/main/agrocd-app.yaml) <-> [Configurations Repo](https://github.com/omarmoo5/goDockerApp-conf)
 
-## Full Documentation
-See the [Wiki](https://github.com/omarmoo5/GoDockerApp/wiki) for full documentation, screenshots, and implementation details.
