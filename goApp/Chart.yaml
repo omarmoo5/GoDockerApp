@@ -1,0 +1,4 @@
+apiVersion: v2
+name: goApp
+description: A Helm chart for go app and mysql database deployment
+version: 1.0.0

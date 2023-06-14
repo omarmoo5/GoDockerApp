@@ -1,5 +1,5 @@
 app:
-  name: myapp-app
+  name: goApp-server
   image: omarmokhtar99/go-docker-app:latest
   replicas: 2
   port: 9090
@@ -7,7 +7,7 @@ app:
   password: 123456789
 
 database:
-  name: myapp-db
+  name: goApp-db
   image: mysql:8.0
   port: 3306
   rootPassword: 123456789
