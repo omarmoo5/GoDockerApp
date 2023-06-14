@@ -9,7 +9,10 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:
       - server-net
-
+    volumes:
+      - type: volume
+        source: go-docker-vol
+        target: /db
   app:
 #    Uncomment the following line and comment the build line to use the prebuilt image
 #    image: omarmokhtar99/go-docker-app
@@ -32,7 +35,6 @@ services:
 networks:
   server-net:
     driver: bridge
-    internal: true
 
 volumes:
   go-docker-vol:
