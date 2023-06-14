@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://github.com/omarmoo5/goDockerApp-conf'
+  path: goapp
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - values.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: dev
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
