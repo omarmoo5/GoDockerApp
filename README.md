@@ -1,7 +1,32 @@
+> This project is for [@InstaBug](https://github.com/Instabug) Infrastructure Challenge Phase 2023
+
 # GoDockerApp
 Streamlined Golang web server deployment
 
-> This project was for [@InstaBug](https://github.com/Instabug) Infrastructure Challenge Phase 2023
+```bash
+.
+├── Dockerfile
+├── Jenkinsfile
+├── README.md
+├── app
+│   ├── README.md
+│   ├── db.go
+│   ├── go.mod
+│   ├── go.sum
+│   └── main.go
+├── docker-compose.yml
+└── goapp
+    ├── Chart.yaml
+    ├── charts
+    ├── templates
+    │   ├── app-deployment.yaml
+    │   ├── app-hpa.yaml
+    │   ├── app-service.yaml
+    │   ├── db-deployment.yaml
+    │   └── db-service.yaml
+    └── values.yaml
+```
+
 
 ### DELIVERABLES
 - [Dockerfile](https://github.com/omarmoo5/GoDockerApp/blob/main/Dockerfile)
@@ -11,4 +36,5 @@ Streamlined Golang web server deployment
 - [Autoscaling manifest](https://github.com/omarmoo5/GoDockerApp/blob/main/goApp/templates/app-hpa.yaml)
 - [argocd app file](https://github.com/omarmoo5/GoDockerApp/blob/main/agrocd-app.yaml) <-> [Configurations Repo](https://github.com/omarmoo5/goDockerApp-conf)
 
-## What is it?
+## Full Documentation
+See the [Wiki](https://github.com/omarmoo5/GoDockerApp/wiki) for full documentation, screenshots, and implementation details.
