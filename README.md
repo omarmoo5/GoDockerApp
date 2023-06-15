@@ -39,7 +39,14 @@ Streamlined Golang web server deployment
 - [Helm manifests](https://github.com/omarmoo5/GoDockerApp/tree/main/goApp) for Kubernetes to deploy the app
 - [Autoscaling manifest](https://github.com/omarmoo5/GoDockerApp/blob/main/goApp/templates/app-hpa.yaml)
 - [argocd app file](https://github.com/omarmoo5/GoDockerApp/blob/main/agrocd-app.yaml) <-> [Configurations Repo](https://github.com/omarmoo5/goDockerApp-conf)
-- [Documentation](https://github.com/omarmoo5/GoDockerApp/wiki)
+- [Documentation](https://github.com/omarmoo5/GoDockerApp/wiki):
+    * [Project Requirements](https://github.com/omarmoo5/GoDockerApp/wiki/Task-Description)
+    * [Containerization Process](https://github.com/omarmoo5/GoDockerApp/wiki/Containerization-Process)
+    * [API Testing and FIX](https://github.com/omarmoo5/GoDockerApp/wiki/API-Testing)
+    * [Jenkins pipeline](https://github.com/omarmoo5/GoDockerApp/wiki/Jenkins-pipeline)
+    * [Helm Manifest & Autoscaling](https://github.com/omarmoo5/GoDockerApp/wiki/Helm-Manifests-and-Autoscaling)
+    * [ArgoCD ( GitOps )](https://github.com/omarmoo5/GoDockerApp/wiki/argoCD-(GitOps))
+
 
 ## Quick Start
 
